@@ -1,5 +1,7 @@
 # Ansible Role: Apt
 
+[![Build Status](https://travis-ci.org/cecepm/ansible-role-apt.svg?branch=master)](https://travis-ci.org/cecepm/ansible-role-apt)
+
 Set ubuntu apt repository to nearest/fastest mirror.
 
 ## Requirements
