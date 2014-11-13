@@ -18,7 +18,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
 None.
 
-## Example playbook
+## Example Playbook
 
     - hosts: server
       roles:
