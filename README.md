@@ -14,16 +14,22 @@ Available variables are listed below, along with default values (see `defaults/m
 
     apt_mirror: "http://kambing.ui.ac.id/ubuntu"
 
-Dependencies
-------------
+## Dependencies
 
 None.
 
-## Example Playbook
+## Install (using git clone)
+
+Clone this role to your ansible roles directory, ie:
+
+    cd my-ansible-project/roles
+    git clone https://github.com/cecepm/ansible-role-apt.git apt
+
+### Example playbook
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: apt }
 
 ## License
 
