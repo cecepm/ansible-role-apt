@@ -18,10 +18,6 @@ Available variables are listed below, along with default values (see `defaults/m
 
 None.
 
-## Install
-
-    ansible-galaxy install cecepm.apt
-
 ## Example playbook
 
     - hosts: server
