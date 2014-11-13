@@ -18,18 +18,15 @@ Available variables are listed below, along with default values (see `defaults/m
 
 None.
 
-## Install (using git clone)
+## Install
 
-Clone this role to your ansible roles directory, ie:
+    ansible-galaxy install cecepm.apt
 
-    cd my-ansible-project/roles
-    git clone https://github.com/cecepm/ansible-role-apt.git apt
+## Example playbook
 
-### Example playbook
-
-    - hosts: servers
+    - hosts: server
       roles:
-         - { role: apt }
+         - cecepm.apt
 
 ## License
 
