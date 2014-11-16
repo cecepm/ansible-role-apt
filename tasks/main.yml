@@ -6,3 +6,7 @@
     owner=root group=root mode=644
   sudo: yes
   notify: run apt-get update
+
+- name: Upgrade installed packages
+  apt: upgrade=yes
+  when: apt_upgrade == "yes"

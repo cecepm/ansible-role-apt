@@ -13,6 +13,7 @@ None.
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
     apt_mirror: "http://kambing.ui.ac.id/ubuntu"
+    apt_upgrade: no
 
 ## Dependencies
 
@@ -21,6 +22,14 @@ None.
 ## Example Playbook
 
     - hosts: server
+      roles:
+      - cecepm.apt
+
+Another example, upgrade all packages after updating sources.list
+
+    - hosts: server
+      vars:
+        apt_upgrade: yes
       roles:
       - cecepm.apt
 

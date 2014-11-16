@@ -1,2 +1,3 @@
 ---
 apt_mirror: "http://kambing.ui.ac.id/ubuntu"
+apt_upgrade: no
