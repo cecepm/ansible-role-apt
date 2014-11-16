@@ -22,7 +22,7 @@ None.
 
     - hosts: server
       roles:
-         - cecepm.apt
+      - cecepm.apt
 
 ## License
 
