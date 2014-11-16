@@ -13,7 +13,7 @@ None.
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
     apt_mirror: "http://kambing.ui.ac.id/ubuntu"
-    apt_upgrade: no
+    apt_upgrade: false
 
 ## Dependencies
 
@@ -29,7 +29,7 @@ Another example, upgrade all packages after updating sources.list
 
     - hosts: server
       vars:
-        apt_upgrade: yes
+        apt_upgrade: true
       roles:
       - cecepm.apt
 

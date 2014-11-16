@@ -8,5 +8,5 @@
   notify: run apt-get update
 
 - name: Upgrade installed packages
-  apt: upgrade=yes
-  when: apt_upgrade == "yes"
+  apt: upgrade=yes update_cache=yes cache_valid_time=3600
+  when: apt_upgrade == true
