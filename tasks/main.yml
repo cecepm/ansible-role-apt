@@ -10,3 +10,4 @@
 - name: Upgrade installed packages
   apt: upgrade=yes update_cache=yes cache_valid_time=3600
   when: apt_upgrade == true or apt_upgrade == "full"
+  sudo: yes
