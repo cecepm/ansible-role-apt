@@ -1,0 +1,7 @@
+---
+- hosts: all
+  sudo: yes
+  roles:
+    - { role: ansible-role-apt, 
+      apt_components: "main",
+      apt_mirror: 'http://miroir.malagasy.com/debian'}
