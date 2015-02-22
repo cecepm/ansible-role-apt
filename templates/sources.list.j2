@@ -1,68 +1,25 @@
+{% if ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian' %}
+  # main repository
+  {% for rel in apt_dists %}
+    {% if rel == 'main' %}
+    deb {{ apt_mirror }} {{ ansible_distribution_release }} {{apt_components}}
+    {% else %}
+    deb {{ apt_mirror }} {{ ansible_distribution_release }}-{{rel}} {{apt_components}}
+    {% endif %}
+
+    {% if apt_source %}
+    {% if rel == 'main' %}
+    deb-src {{ apt_mirror }} {{ ansible_distribution_release }} {{apt_components}}
+    {% else %}
+    deb-src {{ apt_mirror }} {{ ansible_distribution_release }}-{{rel}} {{apt_components}}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+# always add security repository
 {% if ansible_distribution == 'Debian' %}
-deb {{ apt_mirror }} {{ ansible_distribution_release }} {{apt_components}}
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }} {{apt_components}}
-{% endif %}
-deb {{ apt_mirror }} {{ ansible_distribution_release }}-updates {{apt_components}}
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }}-updates {{apt_components}}
-{% endif %}
-deb http://security.debian.org {{ ansible_distribution_release }}/updates {{apt_components}}
-{% if apt_source %}
-deb-src http://security.debian.org {{ ansible_distribution_release }}/updates {{apt_components}}
-{% endif %}
-
-{% elif ansible_distribution == 'Ubuntu' %}
-# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
-# newer versions of the distribution.
-deb {{ apt_mirror }} {{ ansible_distribution_release }} main restricted
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }} main restricted
-{% endif %}
-
-## Major bug fix updates produced after the final release of the
-## distribution.
-deb {{ apt_mirror }} {{ ansible_distribution_release }}-updates main restricted
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }}-updates main restricted
-{% endif %}
-
-## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
-## team. Also, please note that software in universe WILL NOT receive any
-## review or updates from the Ubuntu security team.
-deb {{ apt_mirror }} {{ ansible_distribution_release }} universe
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }} universe
-{% endif %}
-deb {{ apt_mirror }} {{ ansible_distribution_release }}-updates universe
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }}-updates universe
-{% endif %}
-
-## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
-## team, and may not be under a free licence. Please satisfy yourself as to
-## your rights to use the software. Also, please note that software in
-## multiverse WILL NOT receive any review or updates from the Ubuntu
-## security team.
-deb {{ apt_mirror }} {{ ansible_distribution_release }} multiverse
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }} multiverse
-{% endif %}
-deb {{ apt_mirror }} {{ ansible_distribution_release }}-updates multiverse
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }}-updates multiverse
-{% endif %}
-
-deb {{ apt_mirror }} {{ ansible_distribution_release }}-security main restricted
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }}-security main restricted
-{% endif %}
-deb {{ apt_mirror }} {{ ansible_distribution_release }}-security universe
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }}-security universe
-{% endif %}
-deb {{ apt_mirror }} {{ ansible_distribution_release }}-security multiverse
-{% if apt_source %}
-deb-src {{ apt_mirror }} {{ ansible_distribution_release }}-security multiverse
-{% endif %}
+  deb http://security.debian.org {{ ansible_distribution_release }}/updates {{apt_components}}
+  {% if apt_source %}
+  deb-src http://security.debian.org {{ ansible_distribution_release }}/updates {{apt_components}}
+  {% endif %}
 {% endif %}

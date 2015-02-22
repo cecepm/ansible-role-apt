@@ -3,3 +3,4 @@ apt_mirror: "http://kambing.ui.ac.id/ubuntu"
 apt_upgrade: false
 apt_source: false
 apt_components: "main restricted"
+apt_dists: "main updates security"
