@@ -1,0 +1,20 @@
+---
+- hosts: all
+  sudo: yes
+  vars:
+    # distribution to add. Possible values are:
+    # main, updates, security, backports, etc
+    apt_dists: "main updates security"
+    # components to include. Possible values are:
+    # debian: main, contrib and/or non-free
+    # ubuntu: main, restricted, universe and/or multiverse
+    apt_components: "main"
+    # main url of the repository
+    apt_mirror: 'http://miroir.malagasy.com/debian'
+    # include deb-src
+    apt_source: false
+    # upgrade or not after modification of the sources.list
+    # file
+    apt_upgrade: false
+  roles:
+    - ansible-role-apt

@@ -2,8 +2,8 @@
 dependencies: []
 
 galaxy_info:
-  author: cecepm
-  description: Apt repository sources.list configuration for Ubuntu.
+  author: nacerix
+  description: Apt repository sources.list configuration for Ubuntu. From the cecepm work.
   license: "license (BSD, MIT)"
   min_ansible_version: 1.4
   platforms:
@@ -13,5 +13,10 @@ galaxy_info:
     - precise
     - trusty
     - utopic
+  - name: Debian
+    versions:
+    - wheezy
+    - jessie
+    - sid
   categories:
   - system
